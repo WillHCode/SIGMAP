@@ -1,0 +1,22 @@
+{
+  "name": "@sigma/webgpu-vue",
+  "version": "0.1.0",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "peerDependencies": {
+    "@sigma/webgpu-core": "^0.1.0",
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "rollup": "^3.0.0",
+    "@rollup/plugin-typescript": "^10.0.0",
+    "@rollup/plugin-vue": "^6.0.0",
+    "typescript": "^5.0.0",
+    "vue": "^3.0.0",
+    "@webgpu/types": "^0.1.55"
+  }
+}

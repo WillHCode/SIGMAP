@@ -1,0 +1,23 @@
+{
+  "name": "@sigma/webgpu-react",
+  "version": "0.1.0",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "peerDependencies": {
+    "@sigma/webgpu-core": "^0.1.0",
+    "react": "^17.0.0 || ^18.0.0"
+  },
+  "devDependencies": {
+    "vite": "^4.0.0",
+    "@vitejs/plugin-react": "^3.0.0",
+    "typescript": "^5.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@webgpu/types": "^0.1.55"
+  }
+}
