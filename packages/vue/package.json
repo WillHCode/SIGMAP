@@ -14,7 +14,6 @@
   "devDependencies": {
     "rollup": "^3.0.0",
     "@rollup/plugin-typescript": "^10.0.0",
-    "@rollup/plugin-vue": "^6.0.0",
     "typescript": "^5.0.0",
     "vue": "^3.0.0",
     "@webgpu/types": "^0.1.55"
