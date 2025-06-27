@@ -1,4 +1,4 @@
-# SIGma
+# SIGmap
 
 A modern, modular WebGPU-based visualization framework for 2D/3D rendering and compute-powered data representations. SIGma provides a core library and framework-specific adapters (React, Vue, Angular), as well as a zero-dependency standalone build for pure TypeScript usage.
 
