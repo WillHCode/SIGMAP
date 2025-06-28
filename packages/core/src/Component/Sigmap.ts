@@ -33,13 +33,10 @@ export class Sigmap {
         this.mapRenderer.renderHeatmap(rows, opts);
     }
 
-    async setBasemap(opts: BasemapOptions) {
-        // create a second canvas under the WebGPU one
+    async setBasemap(canvas : HTMLCanvasElement, opts: BasemapOptions) {
         if (!this.basemap) {
             this.basemap = new Basemap(opts);
         }
-        // assume HTML has a #basemap-canvas behind the GPU canvas
-        const tileCanvas = document.getElementById("basemap-canvas") as HTMLCanvasElement;
-        await this.basemap.init(tileCanvas);
+        await this.basemap.init(canvas);
     }
 }

@@ -12,10 +12,22 @@ export class Basemap {
     constructor(private readonly opts: BasemapOptions) {}
 
     private tileUrl(z: number, x: number, y: number) {
-        return `https://a.tile.openstreetmap.org/${z}/${x}/${y}.png`;
+        return `https://tile.openstreetmap.org/${z}/${x}/${y}.png`;
     }
 
     async init(canvas: HTMLCanvasElement) {
+        if (!canvas) {
+            throw new Error("Canvas element is required for Basemap initialization.");
+        }
+        if (!(canvas instanceof HTMLCanvasElement)) {
+            throw new Error("Provided element is not a canvas.");
+        }
+        if (!canvas.getContext("2d")) {
+            throw new Error("Canvas does not support 2D context.");
+        }
+        if (canvas.width === 0 || canvas.height === 0) {
+            throw new Error("Canvas dimensions are not set. Please set width and height.");
+        }
         const ctx = canvas.getContext("2d")!;
         canvas.width = canvas.clientWidth;
         canvas.height = canvas.clientHeight;
