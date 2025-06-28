@@ -1,7 +1,7 @@
 import { DeviceManager } from "../gpu/DeviceManager";
 import { ShaderModule } from "../gpu/ShaderModule";
 import { PipelineManager } from "../gpu/PipelineManager";
-import { latLngToMercator } from "../utils/geo";
+import { latLngToMercator } from "../utils/geo"
 
 export interface HeatmapOptions {
     latField: string;
@@ -27,7 +27,6 @@ export class MapRenderer {
         data: Record<string,string>[],
         opts: HeatmapOptions
     ): void {
-        // 1) Convert lat/lng to mercator floats
         const points = data.map(row => {
             const [x,y] = latLngToMercator(
                 parseFloat(row[opts.latField]),
@@ -35,7 +34,6 @@ export class MapRenderer {
             );
             return [x, y, parseFloat(row[opts.valueField])];
         });
-        // 2) Upload to GPU buffer, dispatch compute, draw fullscreen quad, etc.
         const pipeline = this.pipelineMgr.createComputePipeline(this.heatmapShader);
 
     }

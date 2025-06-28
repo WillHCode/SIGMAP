@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^10.0.0",
-    "@webgpu/types": "^0.1.55",
+    "@webgpu/types": "^0.1.63",
     "rollup": "^3.0.0",
     "typescript": "^5.8.3"
   }

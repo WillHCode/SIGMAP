@@ -11,3 +11,9 @@ export function tileToLonLat(x: number, y: number, zoom: number) {
     const lat = 2 * Math.atan(Math.exp(Math.PI*(1 - (2*y/Math.pow(2, zoom))))) - Math.PI / 2;
     return {lon, lat};
 }
+
+export function latLngToMercator(lon: number, lat: number) {
+    const x = (lon + 180) / 360 * 2 - 1; // Normalize to [-1, 1]
+    const y = Math.log(Math.tan((lat + 90) * Math.PI / 360)) / (Math.PI / 180);
+    return [x, y];
+}

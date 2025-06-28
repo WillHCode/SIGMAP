@@ -5,7 +5,8 @@ export class PipelineManager {
 
     createComputePipeline(shader: ShaderModule, entryPoint = "main") {
         return this.device.createComputePipeline({
-            compute: { module: shader.module, entryPoint },
+            compute: {module: shader.module, entryPoint},
+            layout: "auto"
         });
     }
 

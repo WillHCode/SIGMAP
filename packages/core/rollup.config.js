@@ -8,7 +8,10 @@ export default [
             { file: 'dist/index.cjs.js', format: 'cjs' }
         ],
         plugins: [
-            typescript({ tsconfig: './tsconfig.json' })
+            typescript({
+                tsconfig: './tsconfig.json',
+                outputToFilesystem: false
+            })
         ]
     }
 ];

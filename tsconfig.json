@@ -11,6 +11,8 @@
     "composite": true,
     "declaration": true,
     "declarationMap": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "target": "ES2024",
+    "lib": ["ES2024","DOM"]
   }
 }
