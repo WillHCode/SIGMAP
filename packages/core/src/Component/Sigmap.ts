@@ -3,16 +3,16 @@ import { CSVLoader } from "../data/CSVLoader";
 import { MapRenderer, HeatmapOptions } from "../map/MapRenderer";
 import { Basemap, BasemapOptions } from "./Basemap";
 
-export interface SigmaOptions {
+export interface SigmapOptions {
     canvas: HTMLCanvasElement;
 }
 
-export class Sigma {
+export class Sigmap {
     private readonly deviceMgr: DeviceManager;
     private readonly mapRenderer: MapRenderer;
     private basemap?: Basemap;
 
-    constructor(private opts: SigmaOptions) {
+    constructor(private opts: SigmapOptions) {
         this.deviceMgr = new DeviceManager(opts.canvas);
         this.mapRenderer = new MapRenderer(this.deviceMgr);
     }

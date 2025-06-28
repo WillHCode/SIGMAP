@@ -1,5 +1,5 @@
 {
-  "name": "@sigma/webgpu-vue",
+  "name": "@sigmap/webgpu-vue",
   "version": "0.1.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -8,7 +8,7 @@
     "build": "rollup -c"
   },
   "peerDependencies": {
-    "@sigma/webgpu-core": "^0.1.0",
+    "@sigmap/webgpu-core": "^0.1.0",
     "vue": "^3.0.0"
   },
   "devDependencies": {

@@ -1,5 +1,5 @@
 {
-  "name": "@sigma/webgpu-react",
+  "name": "@sigmap/webgpu-react",
   "version": "0.1.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -9,7 +9,7 @@
     "build": "vite build"
   },
   "peerDependencies": {
-    "@sigma/webgpu-core": "^0.1.0",
+    "@sigmap/webgpu-core": "^0.1.0",
     "react": "^17.0.0 || ^18.0.0"
   },
   "devDependencies": {

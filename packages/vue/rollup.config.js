@@ -3,7 +3,7 @@ import vue from '@rollup/plugin-vue';
 
 export default {
     input: 'src/index.ts',
-    external: ['@sigma/webgpu-core', 'vue'],
+    external: ['@sigmap/webgpu-core', 'vue'],
     output: [
         { file: 'dist/index.esm.js', format: 'es' },
         { file: 'dist/index.cjs.js', format: 'cjs' }

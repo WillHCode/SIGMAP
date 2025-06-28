@@ -1,8 +1,8 @@
-import { Sigma, Basemap } from "@sigma/webgpu-core";
+import { Sigmap, Basemap } from "@sigma/webgpu-core";
 
 async function demo() {
     const canvas = document.querySelector("canvas")!;
-    const sigma = new Sigma({ canvas });
+    const sigma = new Sigmap({ canvas });
     await sigma.init();
 
     await sigma.loadMapShaders("/shaders/heatmap.wgsl");

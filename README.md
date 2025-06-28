@@ -1,6 +1,6 @@
-# SIGmap
+# SIGMAP
 
-A modern, modular WebGPU-based visualization framework for 2D/3D rendering and compute-powered data representations. SIGma provides a core library and framework-specific adapters (React, Vue, Angular), as well as a zero-dependency standalone build for pure TypeScript usage.
+A modern, modular WebGPU-based visualization framework for 2D/3D rendering and compute-powered data representations. SIGMAP provides a core library and framework-specific adapters (React, Vue, Angular), as well as a zero-dependency standalone build for pure TypeScript usage.
 
 ---
 
@@ -42,11 +42,11 @@ SIGma/
 ├── package.json
 ├── tsconfig.json           # project references
 └── packages/
-    ├── core/               # @sigma/webgpu-core
-    ├── standalone/         # @sigma/webgpu (UMD bundle)
-    ├── react/              # @sigma/webgpu-react (Vite)
-    ├── vue/                # @sigma/webgpu-vue
-    └── angular/            # @sigma/webgpu-angular
+    ├── core/               # @sigmap/webgpu-core
+    ├── standalone/         # @sigmap/webgpu (UMD bundle)
+    ├── react/              # @sigmap/webgpu-react (Vite)
+    ├── vue/                # @sigmap/webgpu-vue
+    └── angular/            # @sigmap/webgpu-angular
 ```
 
 Each package includes its own `package.json`, `tsconfig.json`, and build config (`rollup.config.js` or `vite.config.ts`).
@@ -66,7 +66,7 @@ Each package includes its own `package.json`, `tsconfig.json`, and build config 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/sigma/SIGma.git
+   git clone https://github.com/sigmap/SIGma.git
    cd SIGma
    ```
 
@@ -101,7 +101,7 @@ This runs each package’s `build` script (`rollup` for core/vue/angular/standal
 Include the UMD bundle in your HTML:
 
 ```html
-<script src="https://unpkg.com/@sigma/webgpu/dist/webgpu.umd.js"></script>
+<script src="https://unpkg.com/@sigmap/webgpu/dist/webgpu.umd.js"></script>
 <script>
   // `WebGPUFramework` is exposed globally by the UMD build
   const app = new WebGPUFramework({ /* options */ });
@@ -112,13 +112,13 @@ Include the UMD bundle in your HTML:
 Or install via npm:
 
 ```bash
-npm install @sigma/webgpu
+npm install @sigmap/webgpu
 ```
 
 ### Core API
 
 ```ts
-import { GPUApp } from '@sigma/webgpu-core';
+import { GPUApp } from '@sigmap/webgpu-core';
 
 const app = new GPUApp({
   canvas: document.getElementById('canvas') as HTMLCanvasElement
@@ -129,12 +129,12 @@ app.renderHeatmap(data);
 ### React Adapter
 
 ```bash
-npm install @sigma/webgpu-react react react-dom
+npm install @sigmap/webgpu-react react react-dom
 ```
 
 ```tsx
 import React from 'react';
-import { WebGPUCanvas } from '@sigma/webgpu-react';
+import { WebGPUCanvas } from '@sigmap/webgpu-react';
 
 export function App() {
   return <WebGPUCanvas options={{ /* ... */ }} />;
@@ -144,7 +144,7 @@ export function App() {
 ### Vue Adapter
 
 ```bash
-npm install @sigma/webgpu-vue vue
+npm install @sigmap/webgpu-vue vue
 ```
 
 ```vue
@@ -154,7 +154,7 @@ npm install @sigma/webgpu-vue vue
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { WebGPUCanvas } from '@sigma/webgpu-vue';
+import { WebGPUCanvas } from '@sigmap/webgpu-vue';
 
 export default defineComponent({
   components: { WebGPUCanvas },
@@ -169,12 +169,12 @@ export default defineComponent({
 ### Angular Adapter
 
 ```bash
-npm install @sigma/webgpu-angular @angular/core
+npm install @sigmap/webgpu-angular @angular/core
 ```
 
 ```ts
 import { Component } from '@angular/core';
-import { WebGPUComponent } from '@sigma/webgpu-angular';
+import { WebGPUComponent } from '@sigmap/webgpu-angular';
 
 @Component({
   selector: 'app-root',

@@ -11,11 +11,11 @@ export default defineConfig({
             fileName: (format) => `index.${format}.js`
         },
         rollupOptions: {
-            external: ['react', '@sigma/webgpu-core'],
+            external: ['react', '@sigmap/webgpu-core'],
             output: {
                 globals: {
                     react: 'React',
-                    '@sigma/webgpu-core': 'WebGPUCore'
+                    '@sigmap/webgpu-core': 'WebGPUCore'
                 }
             }
         }
