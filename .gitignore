@@ -1,0 +1,7 @@
+node_modules/
+.idea
+package-lock.json
+*/node_modules
+**/node_modules
+**/.rollup.cache
+**/dist
