@@ -8,9 +8,9 @@
     "build": "rollup -c"
   },
   "devDependencies": {
-    "rollup": "^3.0.0",
     "@rollup/plugin-typescript": "^10.0.0",
-    "typescript": "^5.0.0",
-    "@webgpu/types": "^0.1.55"
+    "@webgpu/types": "^0.1.55",
+    "rollup": "^3.0.0",
+    "typescript": "^5.8.3"
   }
 }
