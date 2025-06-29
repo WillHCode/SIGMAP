@@ -1,19 +1,7 @@
-export function lonLatToTile(lon: number, lat: number, zoom: number) {
-    const x = Math.floor((lon + 180) / 360 * Math.pow(2, zoom));
-    const y = Math.floor(
-        (1 - Math.log(Math.tan(lat * Math.PI / 180) + 1 / Math.cos(lat * Math.PI / 180)) / Math.PI) * Math.pow(2, zoom-1)
-    );
+export function latLonToTile(lat: number, lon: number, zoom: number) {
+    const n = Math.pow(2, zoom);
+    const x = ((lon + 180) / 360) * n;
+    const latRad = (lat * Math.PI) / 180;
+    const y = (1/2) * (1 - (Math.log(Math.tan(latRad) + 1 / Math.cos(latRad)) / Math.PI)) * n;
     return { x, y };
-}
-
-export function tileToLonLat(x: number, y: number, zoom: number) {
-    const lon = x / Math.pow(2, zoom) * 360 - 180;
-    const lat = 2 * Math.atan(Math.exp(Math.PI*(1 - (2*y/Math.pow(2, zoom))))) - Math.PI / 2;
-    return {lon, lat};
-}
-
-export function latLngToMercator(lon: number, lat: number) {
-    const x = (lon + 180) / 360 * 2 - 1; // Normalize to [-1, 1]
-    const y = Math.log(Math.tan((lat + 90) * Math.PI / 360)) / (Math.PI / 180);
-    return [x, y];
 }

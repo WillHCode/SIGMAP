@@ -1,4 +1,4 @@
-import { Sigmap, Basemap } from "@sigmap/webgpu-core";
+import { Sigmap } from "@sigmap/webgpu-core";
 
 async function demo() {
     const basemapCanvas = document.getElementById("basemap-canvas") as HTMLCanvasElement;
@@ -14,7 +14,7 @@ async function demo() {
     console.log(rows);
 
     const basemapOptions = {
-        zoom: 6,
+        zoom: 3,
         center: { lat: 0, lon: 0 },
     }
 
