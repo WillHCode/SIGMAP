@@ -1,7 +1,6 @@
 import { DeviceManager } from "../gpu/DeviceManager";
 import { ShaderModule } from "../gpu/ShaderModule";
 import { PipelineManager } from "../gpu/PipelineManager";
-import { latLngToMercator } from "../utils/geo"
 
 export interface HeatmapOptions {
     latField: string;
@@ -23,12 +22,19 @@ export class MapRenderer {
         );
     }
 
+    latLngToMercator(lat: number, lon: number): [number, number] {
+        const R = 6378137; // Radius of the Earth in meters
+        const x = R * (lon * Math.PI / 180);
+        const y = R * Math.log(Math.tan((90 + lat) * Math.PI / 360));
+        return [x, y];
+    }
+
     renderHeatmap(
         data: Record<string,string>[],
         opts: HeatmapOptions
     ): void {
         const points = data.map(row => {
-            const [x,y] = latLngToMercator(
+            const [x,y] = this.latLngToMercator(
                 parseFloat(row[opts.latField]),
                 parseFloat(row[opts.lngField])
             );
