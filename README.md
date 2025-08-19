@@ -1,6 +1,6 @@
 # SIGMAP
 
-A modern, modular WebGPU-based visualization framework for 2D/3D rendering and compute-powered data representations. SIGMAP provides a core library and framework-specific adapters (React, Vue, Angular), as well as a zero-dependency standalone build for pure TypeScript usage.
+The goal is to build a modern, modular WebGPU-based visualization framework for 2D/3D rendering and compute-powered data representations. SIGMAP provides a core library and framework-specific adapters (React, Vue, Angular), as well as a zero-dependency standalone build for pure TypeScript usage.
 
 ---
 
@@ -23,6 +23,13 @@ A modern, modular WebGPU-based visualization framework for 2D/3D rendering and c
 * [License](#license)  
 
 ---
+## Work in progress
+The video is an early-stage demonstration.
+It showcases basic map features to help users navigate. This debug view makes my work easier as I grab OpenStreetMap tiles and rebuild the map "one tile at a time".
+
+[![The video is a demonstration at an early stage of development.](https://img.youtube.com/vi/YiWYCqmcqaw/0.jpg)](https://www.youtube.com/watch?v=YiWYCqmcqaw)
+
+---
 
 ## Features
 
@@ -37,7 +44,7 @@ A modern, modular WebGPU-based visualization framework for 2D/3D rendering and c
 ## Monorepo Structure
 
 ```
-SIGma/
+SIGMAP/
 ├── lerna.json
 ├── package.json
 ├── tsconfig.json           # project references
@@ -58,15 +65,14 @@ Each package includes its own `package.json`, `tsconfig.json`, and build config 
 ### Prerequisites
 
 * Node.js 16 or higher  
-* npm (>= 8) or Yarn classic  
-* Git  
+* npm (>= 8) 
 
 ### Installation
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/sigmap/SIGma.git
+   git clone https://github.com/sigmap/SIGMAP.git
    cd SIGma
    ```
 
@@ -125,77 +131,26 @@ const app = new GPUApp({
 });
 app.renderHeatmap(data);
 ```
+#### See the folder "sigmap-demo"
 
 ### React Adapter
 
-```bash
-npm install @sigmap/webgpu-react react react-dom
-```
-
-```tsx
-import React from 'react';
-import { WebGPUCanvas } from '@sigmap/webgpu-react';
-
-export function App() {
-  return <WebGPUCanvas options={{ /* ... */ }} />;
-}
-```
+NOT IMPLEMENTED YET
 
 ### Vue Adapter
 
-```bash
-npm install @sigmap/webgpu-vue vue
-```
-
-```vue
-<template>
-  <WebGPUCanvas :options="options" />
-</template>
-
-<script lang="ts">
-import { defineComponent } from 'vue';
-import { WebGPUCanvas } from '@sigmap/webgpu-vue';
-
-export default defineComponent({
-  components: { WebGPUCanvas },
-  setup() {
-    const options = { /* ... */ };
-    return { options };
-  }
-});
-</script>
-```
+NOT IMPLEMENTED YET
 
 ### Angular Adapter
 
-```bash
-npm install @sigmap/webgpu-angular @angular/core
-```
-
-```ts
-import { Component } from '@angular/core';
-import { WebGPUComponent } from '@sigmap/webgpu-angular';
-
-@Component({
-  selector: 'app-root',
-  template: '<webgpu-canvas [options]="options"></webgpu-canvas>'
-})
-export class AppComponent {
-  options = { /* ... */ };
-}
-```
+NOT IMPLEMENTED YET
 
 ---
 
 ## Contribution Guide
 
-1. Fork the repo  
-2. Create a feature branch (`git checkout -b feature/xyz`)  
-3. Commit your changes (`git commit -m 'feat: add xyz'`)  
-4. Push to your branch (`git push origin feature/xyz`)  
-5. Open a Pull Request  
-
 Please follow conventional commits and ensure all builds/tests pass in CI.
+This project is organised using Github Project (also connect to a Discord bot on a private server) that ease the communication, feedbacks and "Agile" methodology.
 
 ---
 
