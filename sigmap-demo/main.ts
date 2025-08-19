@@ -7,14 +7,8 @@ async function demo() {
     const sigmap = new Sigmap({ canvas: gpuCanvas });
     await sigmap.init();
 
-    await sigmap.loadMapShaders("/shaders/heatmap.wgsl");
-
-    const csvText = await fetch("/data/cities.csv").then(r => r.text());
-    const rows = await sigmap.loadCSV(csvText);
-    console.log(rows);
-
     const basemapOptions = {
-        zoom: 3,
+        zoom: 2,
         center: { lat: 0, lon: 0 },
     }
 
