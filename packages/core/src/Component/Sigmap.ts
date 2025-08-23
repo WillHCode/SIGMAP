@@ -1,16 +1,22 @@
 import { DeviceManager } from "../gpu/DeviceManager";
+import {HeatMap} from "../gpu/HeatMap";
 import { CSVLoader } from "../data/CSVLoader";
 import { MapRenderer, HeatmapOptions } from "../map/MapRenderer";
 import { Basemap, BasemapOptions } from "./Basemap";
+import {Particle, ParticleParameters} from "../gpu/Particle";
+import {Polygon} from "../gpu/Polygons";
 
 export interface SigmapOptions {
-    canvas: HTMLCanvasElement;
+    canvas: HTMLCanvasElement,
 }
 
 export class Sigmap {
     private readonly deviceMgr: DeviceManager;
     private readonly mapRenderer: MapRenderer;
     private basemap?: Basemap;
+    private heatmap?: HeatMap;
+    private particle?: Particle;
+    private polygon?: Polygon;
 
     constructor(private opts: SigmapOptions) {
         this.deviceMgr = new DeviceManager(opts.canvas);
@@ -21,22 +27,38 @@ export class Sigmap {
         await this.deviceMgr.initialize();
     }
 
-    async loadMapShaders(heatmapWGSL: string) {
-        await this.mapRenderer.loadShaders({ heatmapWGSL });
-    }
-
     async loadCSV(text: string) {
         return CSVLoader.load(text);
     }
 
-    renderHeatmap(rows: Record<string, string>[], opts: HeatmapOptions) {
-        this.mapRenderer.renderHeatmap(rows, opts);
+    async setHeatmap(canvas: HTMLCanvasElement | null, data_folder: string) {
+        this.heatmap = new HeatMap(canvas, data_folder);
     }
 
-    async setBasemap(canvas : HTMLCanvasElement, opts: BasemapOptions) {
+    async renderHeatmap() {
+        await this.heatmap.renderHeatmap();
+    }
+
+    async setParticles(canvas: HTMLCanvasElement | null, data_folder: string, params: ParticleParameters) {
+        this.particle = new Particle(canvas, data_folder, params);
+    }
+
+    async renderParticles() {
+        await this.particle.renderParticles();
+    }
+
+    async setPolygons(canvas: HTMLCanvasElement | null, data_folder: string, fileName: string) {
+        this.polygon = new Polygon(canvas, data_folder, fileName);
+    }
+
+    async renderPolygons() {
+        await this.polygon.renderPolygons();
+    }
+
+    setBasemap(canvas : HTMLCanvasElement, opts: BasemapOptions) {
         if (!this.basemap) {
             this.basemap = new Basemap(opts);
         }
-        await this.basemap.init(canvas);
+        this.basemap.init(canvas);
     }
 }

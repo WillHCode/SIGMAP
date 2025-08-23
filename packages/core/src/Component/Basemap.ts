@@ -243,11 +243,7 @@ export class Basemap {
 
             this.loadTileImage(job.url).then(img => {
                 if (drawId !== this.drawCounter) return;
-                // set job added time so fade loop can compute timings
-                job._addedTime = performance.now();
                 this.activeTiles.set(job.placementKey, { img, alpha: 0, job });
-
-                // start fade loop (if not running)
                 if (this.fadeRAF == null) {
                     this.startFadeLoop(drawId, tileRenderSize, scaleFactor);
                 }

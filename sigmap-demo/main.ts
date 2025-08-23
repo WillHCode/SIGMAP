@@ -3,6 +3,7 @@ import { Sigmap } from "@sigmap/webgpu-core";
 async function demo() {
     const basemapCanvas = document.getElementById("basemap-canvas") as HTMLCanvasElement;
     const gpuCanvas  = document.getElementById("gpu-canvas") as HTMLCanvasElement;
+    const particleCanvas  = document.getElementById("particle-canvas") as HTMLCanvasElement;
 
     const sigmap = new Sigmap({ canvas: gpuCanvas });
     await sigmap.init();
@@ -12,7 +13,31 @@ async function demo() {
         center: { lat: 0, lon: 0 },
     }
 
-    await sigmap.setBasemap(basemapCanvas, basemapOptions);
+    // sigmap.setBasemap(basemapCanvas, basemapOptions);
+
+    await sigmap.setHeatmap(gpuCanvas, './grid_bins').then(
+        async () => {
+            await sigmap.renderHeatmap();
+        }
+    )
+
+    await sigmap.setParticles(particleCanvas, './grid_bins', {
+        numParticles: 100000,
+        simulationSpeed: 0.02,
+        maxLifetime: 10,
+        trailLength: 50,
+        trailFade: 0.7
+    }).then(
+        async () => {
+            await sigmap.renderParticles();
+        }
+    )
+
+    await sigmap.setPolygons(basemapCanvas, './grid_bins', 'fusion.shpb').then(
+        async () => {
+            await sigmap.renderPolygons();
+        }
+    )
 }
 
 demo().then(() => null);
