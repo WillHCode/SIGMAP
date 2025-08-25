@@ -5,15 +5,14 @@ async function demo() {
     const gpuCanvas  = document.getElementById("gpu-canvas") as HTMLCanvasElement;
     const particleCanvas  = document.getElementById("particle-canvas") as HTMLCanvasElement;
 
-    const sigmap = new Sigmap({ canvas: gpuCanvas });
-    await sigmap.init();
+    const sigmap = new Sigmap();
 
     const basemapOptions = {
         zoom: 2,
         center: { lat: 0, lon: 0 },
     }
 
-    // sigmap.setBasemap(basemapCanvas, basemapOptions);
+    // sigmap.setBasemap(basemapCanvas, basemapOptions); // This map might be removed or re-implemented later
 
     await sigmap.setHeatmap(gpuCanvas, './grid_bins').then(
         async () => {
@@ -22,7 +21,7 @@ async function demo() {
     )
 
     await sigmap.setParticles(particleCanvas, './grid_bins', {
-        numParticles: 100000,
+        numParticles: 300_000,
         simulationSpeed: 0.02,
         maxLifetime: 10,
         trailLength: 50,
@@ -33,6 +32,7 @@ async function demo() {
         }
     )
 
+    // Set as a basemap
     await sigmap.setPolygons(basemapCanvas, './grid_bins', 'fusion.shpb').then(
         async () => {
             await sigmap.renderPolygons();

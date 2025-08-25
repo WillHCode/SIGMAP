@@ -14,19 +14,23 @@ struct VertexOutput {
 };
 
 fn getSpeedColor(speed: f32) -> vec4f {
-    let colors = array<vec4f, 9>(
-        vec4f(0.0, 0.0, 1.0, 1.0),  // Blue
-        vec4f(0.0, 0.5, 1.0, 1.0),  // Light Blue
-        vec4f(0.0, 1.0, 1.0, 1.0),  // Cyan
-        vec4f(0.0, 1.0, 0.5, 1.0),  // Light Green
-        vec4f(0.0, 1.0, 0.0, 1.0),  // Green
-        vec4f(0.5, 1.0, 0.0, 1.0),  // Light Yellow
-        vec4f(1.0, 1.0, 0.0, 1.0),  // Yellow
-        vec4f(1.0, 0.5, 0.0, 1.0),  // Light Orange
-        vec4f(1.0, 0.0, 0.0, 1.0)   // Red
+    let colors = array<vec4f, 12>(
+      vec4f(0.031, 0.188, 0.420, 1.0), // very deep blue (calm)
+      vec4f(0.031, 0.317, 0.611, 1.0), // deep blue
+      vec4f(0.000, 0.443, 0.737, 1.0), // blue
+      vec4f(0.000, 0.576, 0.800, 1.0), // light blue
+      vec4f(0.000, 0.690, 0.850, 1.0), // cyan
+      vec4f(0.188, 0.784, 0.886, 1.0), // bright cyan
+      vec4f(0.498, 0.875, 0.910, 1.0), // pale cyan
+      vec4f(0.867, 0.922, 0.769, 1.0), // very light greenish-yellow (transitional)
+      vec4f(0.976, 0.843, 0.463, 1.0), // yellow-orange
+      vec4f(0.965, 0.596, 0.282, 1.0), // orange
+      vec4f(0.902, 0.200, 0.149, 1.0), // red
+      vec4f(1.000, 1.000, 1.000, 1.0)  // white (extreme currents)
     );
 
-    const colorCount = 9u;
+
+    const colorCount = 12u;
     let idx = u32(floor(speed * f32(colorCount - 1u)));
     let nextIdx = min(idx + 1u, colorCount - 1u);
     let localT = clamp(speed * f32(colorCount - 1u), 0.0, 1.0);

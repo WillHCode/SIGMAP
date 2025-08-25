@@ -1,31 +1,16 @@
-import { DeviceManager } from "../gpu/DeviceManager";
 import {HeatMap} from "../gpu/HeatMap";
 import { CSVLoader } from "../data/CSVLoader";
-import { MapRenderer, HeatmapOptions } from "../map/MapRenderer";
 import { Basemap, BasemapOptions } from "./Basemap";
 import {Particle, ParticleParameters} from "../gpu/Particle";
 import {Polygon} from "../gpu/Polygons";
 
-export interface SigmapOptions {
-    canvas: HTMLCanvasElement,
-}
-
 export class Sigmap {
-    private readonly deviceMgr: DeviceManager;
-    private readonly mapRenderer: MapRenderer;
     private basemap?: Basemap;
     private heatmap?: HeatMap;
     private particle?: Particle;
     private polygon?: Polygon;
 
-    constructor(private opts: SigmapOptions) {
-        this.deviceMgr = new DeviceManager(opts.canvas);
-        this.mapRenderer = new MapRenderer(this.deviceMgr);
-    }
-
-    async init() {
-        await this.deviceMgr.initialize();
-    }
+    constructor() {}
 
     async loadCSV(text: string) {
         return CSVLoader.load(text);

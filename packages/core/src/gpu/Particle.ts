@@ -201,7 +201,7 @@ export class Particle extends Engine{
         const frame = () => {
             const now = performance.now();
             const dtMs = now - lastTime;
-            const dt = Math.max(0.000001, dtMs / 1000.0); // in seconds, avoid zero
+            const dt = Math.max(0.000_001, dtMs / 1_000.0); // in seconds, avoid zero
             lastTime = now;
 
             updateUniform(dt);
