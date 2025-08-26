@@ -6,10 +6,10 @@ export abstract class Engine{
     protected context: GPUCanvasContext;
     protected format: GPUTextureFormat;
 
-    protected min_u: number = Number.MIN_VALUE;
-    protected min_v: number = Number.MIN_VALUE;
-    protected max_u: number = Number.MAX_VALUE;
-    protected max_v: number = Number.MAX_VALUE;
+    protected min_u: number = -Infinity;
+    protected min_v: number = -Infinity;
+    protected max_u: number = Infinity;
+    protected max_v: number = Infinity;
     protected u_filepath: string = '';
     protected v_filepath: string = '';
     protected lat_filepath: string = '';
