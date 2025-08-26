@@ -139,7 +139,7 @@ export class ResourceCache {
         if (url) this.shpbCache.delete(url);
         else this.shpbCache.clear();
     }
-    static cleatrAll() {
+    static clearAll() {
         this.clearMeta();
         this.clearBinary();
         this.clearShpb();
