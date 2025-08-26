@@ -1,0 +1,15 @@
+{
+  "cols": 4320,
+  "endianness": "little",
+  "lat_file": "latitudes.bin",
+  "lon_file": "longitudes.bin",
+  "max_u": 3.345703125,
+  "max_v": 2.9267578125,
+  "min_u": -2.0947265625,
+  "min_v": -2.4677734375,
+  "rows": 2041,
+  "sentinel_u": -3.0947265625,
+  "sentinel_v": -3.4677734375,
+  "u_file": "u.bin",
+  "v_file": "v.bin"
+}
