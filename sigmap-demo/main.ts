@@ -1,9 +1,24 @@
 import { Sigmap } from "@sigmap/webgpu-core";
+import {MovementHandler} from "@sigmap/webgpu-core";
 
 async function demo() {
+    const container = document.getElementById("map-container") as HTMLElement;
+
     const basemapCanvas = document.getElementById("basemap-canvas") as HTMLCanvasElement;
     const gpuCanvas  = document.getElementById("gpu-canvas") as HTMLCanvasElement;
     const particleCanvas  = document.getElementById("particle-canvas") as HTMLCanvasElement;
+
+    const handler = new MovementHandler(container, {
+        minScale: 1,
+        maxScale: 8,
+        wrapX: true,
+        applyCssTransforms: false
+    });
+
+    handler.addTarget(document.getElementById("gpu-canvas") as HTMLCanvasElement);
+    handler.addTarget(document.getElementById("particle-canvas") as HTMLCanvasElement);
+    handler.addTarget(document.getElementById("basemap-canvas") as HTMLCanvasElement);
+
 
     const sigmap = new Sigmap();
 
@@ -18,7 +33,8 @@ async function demo() {
         async () => {
             await sigmap.renderHeatmap();
         }
-    )
+    );
+    const heatmap = await sigmap.getHeatmap();
 
     await sigmap.setParticles(particleCanvas, './grid_bins', {
         numParticles: 300_000,
@@ -31,13 +47,24 @@ async function demo() {
             await sigmap.renderParticles();
         }
     )
+    const particles = await sigmap.getParticles();
 
     // Set as a basemap
-    await sigmap.setPolygons(basemapCanvas, './grid_bins', 'fusion.shpb').then(
-        async () => {
-            await sigmap.renderPolygons();
-        }
-    )
+    // await sigmap.setPolygons(basemapCanvas, './grid_bins', 'fusion.shpb').then(
+    //     async () => {
+    //         await sigmap.renderPolygons();
+    //     }
+    // )
+    // const polygons = await sigmap.getPolygons();
+
+    // Handler events
+    handler.onChange = async (t) => {
+        heatmap.updateCameraFromTransform(t);
+        await heatmap.setWindowFromTransform(t);
+        particles.updateCameraFromTransform(t);
+        await particles.setWindowFromTransform(t);
+        // await polygons.updateCameraFromTransform(t);
+    };
 }
 
 demo().then(() => null);

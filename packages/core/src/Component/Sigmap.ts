@@ -20,6 +20,13 @@ export class Sigmap {
         this.heatmap = new HeatMap(canvas, data_folder);
     }
 
+    async getHeatmap(): Promise<HeatMap> {
+        if (!this.heatmap) {
+            throw new Error('Heatmap not initialized. Call setHeatmap() first.');
+        }
+        return this.heatmap;
+    }
+
     async renderHeatmap() {
         await this.heatmap.renderHeatmap();
     }
@@ -28,12 +35,26 @@ export class Sigmap {
         this.particle = new Particle(canvas, data_folder, params);
     }
 
+    async getParticles(): Promise<Particle> {
+        if (!this.particle) {
+            throw new Error('Particle system not initialized. Call setParticles() first.');
+        }
+        return this.particle;
+    }
+
     async renderParticles() {
         await this.particle.renderParticles();
     }
 
     async setPolygons(canvas: HTMLCanvasElement | null, data_folder: string, fileName: string) {
         this.polygon = new Polygon(canvas, data_folder, fileName);
+    }
+
+    async getPolygons(): Promise<Polygon> {
+        if (!this.polygon) {
+            throw new Error('Polygon system not initialized. Call setPolygons() first.');
+        }
+        return this.polygon;
     }
 
     async renderPolygons() {
