@@ -59,11 +59,14 @@ async function demo() {
 
     // Handler events
     handler.onChange = async (t) => {
+        particleCanvas.style.visibility = "hidden";
         heatmap.updateCameraFromTransform(t);
         await heatmap.setWindowFromTransform(t);
         particles.updateCameraFromTransform(t);
-        await particles.setWindowFromTransform(t);
-        // await polygons.updateCameraFromTransform(t);
+        await particles.setWindowFromTransform(t).then(
+            () => particleCanvas.style.visibility = "visible"
+        )
+        //await polygons.updateCameraFromTransform(t);
     };
 }
 
