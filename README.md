@@ -31,7 +31,8 @@ It showcases basic map features to help users navigate. This debug view makes my
 
 ### Current state (from [Branch-6 moving](https://github.com/WillHCode/SIGMAP/tree/6-moving))
 Full WebGPU rendering and move handler (Date : 04/11/2025)
-[![Full WebGPU rendering and move handler](https://img.youtube.com/vi/WeVFIm1XrBs/0.jpg)](https://www.youtube.com/watch?v=WeVFIm1XrBs)
+
+[![Full WebGPU rendering and move handler](https://img.youtube.com/vi/v_qhCllhuoc/0.jpg)](https://www.youtube.com/watch?v=v_qhCllhuoc)
 
 ---
 
