@@ -29,6 +29,10 @@ It showcases basic map features to help users navigate. This debug view makes my
 
 [![The video is a demonstration at an early stage of development.](https://img.youtube.com/vi/YiWYCqmcqaw/0.jpg)](https://www.youtube.com/watch?v=YiWYCqmcqaw)
 
+### Current state (from [Branch-6 moving](https://github.com/WillHCode/SIGMAP/tree/6-moving))
+Full WebGPU rendering and move handler (Date : 04/11/2025)
+[![Full WebGPU rendering and move handler](https://img.youtube.com/vi/WeVFIm1XrBs/0.jpg)](https://www.youtube.com/watch?v=WeVFIm1XrBs)
+
 ---
 
 ## Features
